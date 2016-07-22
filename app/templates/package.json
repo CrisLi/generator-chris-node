@@ -1,0 +1,10 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "main": "<%= main %>",
+  "scripts": {
+    "start": "node <%= main %>"
+  },
+  "author": "<%= author %>",
+  "license": "<%= license %>"
+}

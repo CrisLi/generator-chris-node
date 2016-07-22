@@ -1,0 +1,21 @@
+{
+  "name": "generator-chris-node",
+  "version": "1.0.0",
+  "description": "Chris Node Yeoman Generator",
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Chris Li",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.1.1",
+    "eslint-plugin-babel": "^3.3.0"
+  },
+  "dependencies": {
+    "yeoman-generator": "^0.24.1"
+  }
+}
