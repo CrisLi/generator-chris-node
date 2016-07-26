@@ -1,22 +1,40 @@
 const generators = require('yeoman-generator');
 const path = require('path');
+const fs = require('fs');
 const mkdirp = require('mkdirp');
 
 class Generator extends generators.Base {
 
   constructor(args, options) {
     super(args, options);
+
+    this.argument('appName', { 
+      type: String, 
+      required: false,
+      default: path.basename(this.destinationRoot())
+    });
+
+    this._normilzeRoot();
+  }
+
+  _normilzeRoot() {
+
+    const root = this.destinationPath(this.appName);
+
+    if (fs.existsSync(root)) {
+      this.env.error(`${root} directory is exist.`);
+    }
+
+    this.destinationRoot(root);
   }
 
   prompting() {
-
-    const rootPath = this.destinationRoot();
 
     return this.prompt([{
       type    : 'input',
       name    : 'name',
       message : 'Your project name',
-      default : path.basename(rootPath)
+      default : this.appName
     }, {
       type    : 'input',
       name    : 'version',
