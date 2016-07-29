@@ -1,0 +1,21 @@
+{
+  "index": "index.js",
+  "scripts": {
+  },
+  "dirs": [
+    "src"
+  ],
+  "rootFiles": [
+    ".eslintrc",
+    ".vscode",
+    ".gitignore"
+  ],
+  "dependencies": [
+    "lodash"
+  ],
+  "devDependencies": [
+    "babel-eslint",
+    "eslint",
+    "eslint-plugin-babel"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "main": "<%= main %>",
+  "scripts": <%- scripts %>,
+  "author": "<%= author %>",
+  "license": "<%= license %>"
+}

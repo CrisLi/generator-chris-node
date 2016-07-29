@@ -1,0 +1,54 @@
+{
+  "index": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "serve": "nodemon server.js --ignore src",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --progress --config ./webpack/webpack.config.prod.js",
+    "start": "npm run serve",
+    "start:pro": "cross-env NODE_ENV=production node server.js"
+  },
+  "dirs": [
+    "src",
+    "dist"
+  ],
+  "rootFiles": [
+    ".babelrc",
+    ".eslintrc",
+    ".vscode",
+    ".gitignore",
+    "server.js",
+    "public",
+    "webpack"
+  ],
+  "dependencies": [
+    "compression",
+    "express",
+    "lodash",
+    "react",
+    "react-dom",
+    "react-router"
+  ],
+  "devDependencies": [
+    "babel-eslint",
+    "babel-loader",
+    "babel-preset-es2015",
+    "babel-preset-react",
+    "babel-preset-react-hmre",
+    "babel-preset-stage-1",
+    "cross-env",
+    "css-loader",
+    "eslint",
+    "eslint-plugin-babel",
+    "eslint-plugin-react",
+    "extract-text-webpack-plugin",
+    "file-loader",
+    "http-proxy",
+    "react-transform-hmr",
+    "rimraf",
+    "style-loader",
+    "url-loader",
+    "webpack",
+    "webpack-dev-middleware",
+    "webpack-hot-middleware"
+  ]
+}
