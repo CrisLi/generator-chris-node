@@ -8,7 +8,6 @@
     "start:pro": "cross-env NODE_ENV=production node server.js"
   },
   "dirs": [
-    "src",
     "dist"
   ],
   "rootFiles": [
@@ -16,6 +15,7 @@
     ".eslintrc",
     ".vscode",
     ".gitignore",
+    "src",
     "server.js",
     "public",
     "webpack"
