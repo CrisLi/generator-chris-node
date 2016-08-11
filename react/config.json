@@ -17,7 +17,9 @@
     ".gitignore",
     "src",
     "server.js",
-    "public",
+    "server.dev.js",
+    "server.pro.js",
+    "html",
     "webpack"
   ],
   "dependencies": [
@@ -42,6 +44,7 @@
     "eslint-plugin-react",
     "extract-text-webpack-plugin",
     "file-loader",
+    "html-webpack-plugin",
     "http-proxy",
     "react-transform-hmr",
     "rimraf",

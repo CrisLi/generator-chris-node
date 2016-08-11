@@ -1,7 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const src = path.resolve(__dirname, '..', 'src');
+const html = path.resolve(__dirname, '..', 'html');
 const config = require('./webpack.config');
 
 module.exports = {
@@ -13,9 +15,12 @@ module.exports = {
   module: config['module'],
   resolve: config['resolve'],
   plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(html, 'index.html')
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin('static/css/[name].css'),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')

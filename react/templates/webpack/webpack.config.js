@@ -1,8 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { extract } = ExtractTextPlugin;
 const src = path.resolve(__dirname, '..', 'src');
+const html = path.resolve(__dirname, '..', 'html');
 
 module.exports = {
   devtool: 'source-map', // https://github.com/webpack/docs/wiki/build-performance#sourcemaps
@@ -12,8 +14,8 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/public/'
+    filename: 'static/js/bundle.js',
+    publicPath: '/'
   },
   module: {
     loaders: [
@@ -32,28 +34,11 @@ module.exports = {
         loader: extract('style-loader', 'css-loader')
       },
       {
-        test: /\.less$/,
-        loader: extract('style-loader', 'css-loader!less-loader')
-      },
-      {
-        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff'
-      },
-      {
-        test: /\.gif$/,
-        loader: 'url?mimetype=image/png'
-      },
-      {
-        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=application/octet-stream'
-      },
-      {
-        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file'
-      },
-      {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=image/svg+xml'
+        test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
+        loader: 'file',
+        query: {
+          name: 'static/media/[name].[ext]'
+        }
       }
     ]
   },
@@ -61,8 +46,11 @@ module.exports = {
     extensions: ['', '.js', '.jsx', '.json']
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(html, 'index.html')
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin('static/css/[name].css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
