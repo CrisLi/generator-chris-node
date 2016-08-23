@@ -1,5 +1,5 @@
 const path = require('path');
-const src = path.resolve(__dirname, '..', 'client');
+const src = path.resolve(__dirname, '..', 'src');
 const html = path.resolve(__dirname, '..', 'html');
 const dist = path.resolve(__dirname, '..', 'dist');
 const entry = path.resolve(src, 'app.js');
