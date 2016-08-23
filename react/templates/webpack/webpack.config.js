@@ -3,17 +3,16 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { extract } = ExtractTextPlugin;
-const src = path.resolve(__dirname, '..', 'src');
-const html = path.resolve(__dirname, '..', 'html');
+const { entry, src, dist, html } = require('./path.config');
 
 module.exports = {
   devtool: 'source-map', // https://github.com/webpack/docs/wiki/build-performance#sourcemaps
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.resolve(src, 'app.js')
+    entry
   ],
   output: {
-    path: path.resolve(__dirname, '..', 'dist'),
+    path: dist,
     filename: 'static/js/bundle.js',
     publicPath: '/'
   },

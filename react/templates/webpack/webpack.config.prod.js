@@ -2,15 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const src = path.resolve(__dirname, '..', 'src');
-const html = path.resolve(__dirname, '..', 'html');
+const { entry, html } = require('./path.config');
 const config = require('./webpack.config');
 
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    path.resolve(src, 'app.js')
-  ],
+  entry,
   output: config['output'],
   module: config['module'],
   resolve: config['resolve'],
