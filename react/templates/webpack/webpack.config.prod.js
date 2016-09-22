@@ -15,7 +15,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(html, 'index.html')
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new ExtractTextPlugin('static/css/[name].css'),
     new webpack.DefinePlugin({

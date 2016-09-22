@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: extract('style-loader', 'css-loader')
+        loader: extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
       },
       {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
@@ -42,13 +42,13 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json']
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(html, 'index.html')
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin('static/css/[name].css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
